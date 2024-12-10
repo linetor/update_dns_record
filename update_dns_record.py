@@ -20,9 +20,8 @@ def update_dns_record(zone_id, record_name, record_id, new_ip , api_token,mail):
 
     url = f"https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records/{record_id}"
     headers = {
-        "X-Auth-Key": f"{api_token}",
+        "Authorization": f"Bearer {api_token}",
         "Content-Type": "application/json",
-        "X-Auth-Email": mail,
     }
     payload = {
         "content": new_ip,
